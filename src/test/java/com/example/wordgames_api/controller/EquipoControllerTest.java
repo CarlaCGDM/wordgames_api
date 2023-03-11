@@ -32,7 +32,11 @@ public class EquipoControllerTest {
     }
     @Test
     public void testGetOneEquipo() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/equipo/1"))
+
+        List<Equipo> result = equipoService.findAll();
+        Equipo masNuevo = result.get(result.size() - 1);
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/equipo/" + masNuevo.getId()))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON));;
 

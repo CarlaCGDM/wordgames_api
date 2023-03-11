@@ -33,7 +33,9 @@ public class JugadorControllerTest {
     }
     @Test
     public void testGetOneJugador() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/jugador/12/"))
+        List<Jugador> result = jugadorService.findAll();
+        Jugador masNuevo = result.get(result.size() - 1);
+        mockMvc.perform(MockMvcRequestBuilders.get("/jugador/" + masNuevo.getId()))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON));;
     }
