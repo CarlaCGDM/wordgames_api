@@ -26,7 +26,6 @@ public class EquipoController {
     private final EquipoService equipoService;
     private final EquipoDTOConverter equipoDTOConverter;
 
-    private final EquipoRepo equipoRepo;
     private final JugadorRepo jugadorRepo;
     private final ModelMapper modelMapper;
     /**
